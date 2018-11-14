@@ -22,6 +22,9 @@ $lang['datetime_format_short']          = 'd.m.Y H:i';
 // List headers
 
 // Buttons
+$lang['btn_login']                      = 'Se connecter';
+$lang['btn_logout']                     = 'Se déconnecter';
+$lang['btn_admin']                      = 'Administration';
 
 // Messages
 
