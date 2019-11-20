@@ -1,9 +1,9 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * French translations of applcation's texts
+ * French translations of application's texts
  *
  * @author      Didier Viret
- * @link        https://github.com/OrifInformatique/ci_pack_base
+ * @link        https://github.com/OrifInformatique
  * @copyright   Copyright (c), Orif <http://www.orif.ch>
  */
 
@@ -27,5 +27,7 @@ $lang['btn_logout']                     = 'Se déconnecter';
 $lang['btn_admin']                      = 'Administration';
 
 // Messages
+$lang['msg_err_access_denied_header']   = 'Accès interdit';
+$lang['msg_err_access_denied_message']  = 'Vous n\'êtes pas autorisé à accéder à cette fonction';
 
 // Other texts
