@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  jeu. 21 nov. 2019 à 16:39
+-- Généré le :  ven. 22 nov. 2019 à 10:44
 -- Version du serveur :  10.4.6-MariaDB
 -- Version de PHP :  7.3.9
 
@@ -44,12 +44,12 @@ CREATE TABLE `ci_sessions` (
 --
 
 CREATE TABLE `user` (
-  `ID` int(11) NOT NULL,
-  `FK_User_Type` int(11) NOT NULL,
-  `User_Name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `Password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Archive` tinyint(4) NOT NULL DEFAULT 0,
-  `Date_Creation` timestamp NOT NULL DEFAULT current_timestamp()
+  `id` int(11) NOT NULL,
+  `fk_user_type` int(11) NOT NULL,
+  `username` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `archive` tinyint(4) NOT NULL DEFAULT 0,
+  `date_creation` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -59,7 +59,7 @@ CREATE TABLE `user` (
 --
 
 CREATE TABLE `user_type` (
-  `ID` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `access_level` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -68,7 +68,7 @@ CREATE TABLE `user_type` (
 -- Déchargement des données de la table `user_type`
 --
 
-INSERT INTO `user_type` (`ID`, `name`, `access_level`) VALUES
+INSERT INTO `user_type` (`id`, `name`, `access_level`) VALUES
 (1, 'Administrateur', 4),
 (2, 'Enregistré', 2),
 (3, 'Invité', 1);
@@ -87,14 +87,14 @@ ALTER TABLE `ci_sessions`
 -- Index pour la table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `fk_user_user_type1_idx` (`FK_User_Type`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_user_user_type1_idx` (`fk_user_type`);
 
 --
 -- Index pour la table `user_type`
 --
 ALTER TABLE `user_type`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -104,13 +104,13 @@ ALTER TABLE `user_type`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `user_type`
 --
 ALTER TABLE `user_type`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Contraintes pour les tables déchargées
