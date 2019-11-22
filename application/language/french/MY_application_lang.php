@@ -2,9 +2,9 @@
 /**
  * French translations of application's texts
  *
- * @author      Didier Viret
+ * @author      Orif
  * @link        https://github.com/OrifInformatique
- * @copyright   Copyright (c), Orif <http://www.orif.ch>
+ * @copyright   Copyright (c), Orif (http://www.orif.ch)
  */
 
 // Application name
@@ -33,5 +33,6 @@ $lang['btn_cancel']                     = 'Annuler';
 // Messages
 $lang['msg_err_access_denied_header']   = 'Accès interdit';
 $lang['msg_err_access_denied_message']  = 'Vous n\'êtes pas autorisé à accéder à cette fonction';
+$lang['msg_err_invalid_password']       = 'L\'identifiant et le mot de passe ne sont pas valides';
 
 // Other texts

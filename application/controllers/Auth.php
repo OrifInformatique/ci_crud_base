@@ -4,7 +4,7 @@
  *
  * @author      Orif (ViDi)
  * @link        https://github.com/OrifInformatique
- * @copyright   Copyright (c), Orif <http://www.orif.ch>
+ * @copyright   Copyright (c), Orif (https://www.orif.ch)
  * @version     2.0
  */
 class Auth extends MY_Controller
@@ -18,6 +18,8 @@ class Auth extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('user_model');
+        $this->load->model('user_type_model');
     }
 
     /**
@@ -62,17 +64,15 @@ class Auth extends MY_Controller
             if ($this->form_validation->run() == true) {
                 $username = $this->input->post('username');
                 $password = $this->input->post('password');
-
-/** TODO - CHECK PASSWORD HERE
                 
                 if ($this->user_model->check_password($username, $password)) {
                     // Login success
                     $user = $this->user_model->with('user_type')
-                                             ->get_by('User', $username);
+                                             ->get_by('username', $username);
 
                     // Set session variables
-                    $_SESSION['user_id'] = (int)$user->ID;
-                    $_SESSION['username'] = (string)$user->User;
+                    $_SESSION['user_id'] = (int)$user->id;
+                    $_SESSION['username'] = (string)$user->username;
                     $_SESSION['user_access'] = (int)$user->user_type->access_level;
                     $_SESSION['logged_in'] = (bool)true;
 
@@ -82,9 +82,7 @@ class Auth extends MY_Controller
                 } else {
                     // Login failed
                     $this->session->set_flashdata('message-danger', lang('msg_err_invalid_password'));
-                }             
-*/
-                
+                }               
             }
         }
 
@@ -165,7 +163,7 @@ class Auth extends MY_Controller
             }
 
             // Display the password change form
-            $output['title'] = $this->lang->line('page_password_change');
+            $output['title'] = lang('page_password_change');
             $this->display_view('auth/password_change_form', $output);
         } else {
             // Access is not allowed
